@@ -17,14 +17,6 @@ body {
 }
 
 :root {
-  --s-10: 10px;
-  --s-12: 12px;
-  --s-14: 14px;
-  --s-16: 16px;
-  --s-20: 20px;
-  --s-24: 24px;
-  --s-28: 28px;
-
   --grey: #616161;
   --blue: #4C4DDC;
   --white: #FFFFFF;
@@ -32,16 +24,16 @@ body {
  }
 
 .--s-14 {
-  font-size: var(--s-14);
+  font-size: 14px;
+  line-height: 20px;
   letter-spacing: -0.006em;
-  line-height: var(--s-20);
 }
 
 input, textarea {
   border: none;
   outline: none;
   padding: 6px 12px;
-  border-radius: var(--s-10);
+  border-radius: 10px;
   background-color: #F5F5F5;
   border: 1px solid #E0E0E0;
 }
@@ -77,23 +69,23 @@ input:hover, textarea:hover {
 }
 
 .note-app__header-brand-title {
+  font-size: 28px;
   font-weight: 700;
   line-height: 36px;
-  font-size: var(--s-28);
   letter-spacing: 0.119em;
 }
 
 .note-app__body {
-  padding: 32px 24px;
   margin: 0 auto;
+  padding: 32px 12px;
   max-width: 1166px;
 }
 
 .note-app__body h2 {
+  font-size: 20px;
   text-align: left;
   font-weight: 700;
   line-height: 36px;
-  font-size: var(--s-20);
   letter-spacing: 0.119em;
 }
 
@@ -106,7 +98,7 @@ input:hover, textarea:hover {
 
 .note-app__footer {
   text-align: center;
-  padding: 18px 24px;
+  padding: 18px 12px;
   background-color: var(--white);
   border-top: 1px solid #E0E0E0;
 }
@@ -125,7 +117,7 @@ input:hover, textarea:hover {
 
   .note-search input {
     width: 100%;
-    margin-top: var(--s-16);
+    margin-top: 16px;
   }
 }
 
