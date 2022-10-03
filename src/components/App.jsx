@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-access-state-in-setstate */
 /* eslint-disable max-len */
 /* eslint-disable react/destructuring-assignment */
@@ -16,7 +18,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       notes: getInitialData(),
-      search: '',
+      keyword: props.defaultKeyword || '',
     };
     autoBind(this);
   }
@@ -35,10 +37,9 @@ class App extends React.Component {
     }));
   }
 
-  onSearchHandler(search) {
-    this.setState((prev) => ({
-      ...prev,
-      search,
+  onSearchHandler(keyword) {
+    this.setState(() => ({
+      keyword,
     }));
   }
 
@@ -53,17 +54,18 @@ class App extends React.Component {
   }
 
   render() {
+    const notes = this.state.notes.filter((note) => note.title.toLowerCase()
+      .includes(this.state.keyword.toLowerCase()));
+
     return (
       <>
-        <Header label="Notes" searchNotes={this.onSearchHandler} />
+        <Header label="Notes" keyword={this.state.keyword} keywordChange={this.onSearchHandler} />
         <main className="note-app__body">
           <Input addNote={this.onAddNoteHandler} />
           <NoteList
             img={Active}
             label="active notes"
-            notes={
-              this.state.notes.filter((note) => note.title.toLowerCase().includes(this.state.search.toLowerCase()))
-            }
+            notes={notes}
             onDelete={this.onDeleteHandler}
             onArchived={this.onArchivedHandler}
           />
@@ -71,9 +73,7 @@ class App extends React.Component {
             type="archived"
             img={Archived}
             label="archived notes"
-            notes={
-              this.state.notes.filter((note) => note.title.toLowerCase().includes(this.state.search.toLowerCase()))
-            }
+            notes={notes}
             onDelete={this.onDeleteHandler}
             onArchived={this.onArchivedHandler}
           />

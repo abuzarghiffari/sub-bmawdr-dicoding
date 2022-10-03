@@ -18,7 +18,8 @@ function NoteList({
           onDelete={onDelete}
           onArchived={onArchived}
         />
-      ) : (
+      )
+      : (
         <List
           img={img}
           label={label}

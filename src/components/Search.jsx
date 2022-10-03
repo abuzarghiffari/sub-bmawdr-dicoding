@@ -1,14 +1,15 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-function Seacrh({ searchNotes, placeholder }) {
+function Seacrh({ keyword, keywordChange, placeholder }) {
   return (
     <div className="note-search">
       <input
         type="search"
         className="--s-14"
+        value={keyword}
         placeholder={placeholder}
-        onChange={(event) => searchNotes(event.target.value)}
+        onChange={(event) => keywordChange(event.target.value)}
       />
     </div>
   );
